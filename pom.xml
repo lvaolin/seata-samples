@@ -262,10 +262,10 @@
     </dependencyManagement>
 
     <repositories>
-        <repository>
-            <id>mvnrepository</id>
-            <name>mvnrepository</name>
-            <url>http://www.mvnrepository.com/</url>
+	     <repository>
+            <id>alimaven</id>
+            <name>alimaven</name>
+            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
             <layout>default</layout>
             <releases>
                 <enabled>true</enabled>
@@ -274,16 +274,29 @@
                 <enabled>true</enabled>
             </snapshots>
         </repository>
+	
+        <repository>
+            <id>mvnrepository</id>
+            <name>mvnrepository</name>
+            <url>http://www.mvnrepository.com/</url>
+            <layout>default</layout>
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+        </repository>
         <repository>
             <id>sonatype</id>
             <name>sonatype</name>
             <url>http://oss.sonatype.org/</url>
             <layout>default</layout>
             <releases>
-                <enabled>true</enabled>
+                <enabled>false</enabled>
             </releases>
             <snapshots>
-                <enabled>true</enabled>
+                <enabled>false</enabled>
             </snapshots>
         </repository>
     </repositories>
