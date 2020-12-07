@@ -24,7 +24,7 @@
     <version>1.1.0</version>
     <name>seata-samples ${project.version}</name>
     <properties>
-        <seata.version>1.1.0</seata.version>
+        <seata.version>1.4.0</seata.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -40,7 +40,7 @@
         <org.springframework.spring.version>2.5.6.SEC03</org.springframework.spring.version>
         <junit.version>4.12</junit.version>
         <dubbo.version>2.7.5</dubbo.version>
-        <fastjson.version>1.2.54</fastjson.version>
+        <fastjson.version>1.2.67</fastjson.version>
         <config.version>1.2.1</config.version>
         <slf4j-api.version>1.7.22</slf4j-api.version>
         <logback-classic.version>1.1.6</logback-classic.version>
@@ -57,7 +57,7 @@
         <mysql-connector.version>5.1.44</mysql-connector.version>
         <curator.version>4.2.0</curator.version>
         <guava.version>27.0.1-jre</guava.version>
-        <jackson.version>2.9.10.3</jackson.version>
+        <jackson.version>2.9.10.5</jackson.version>
         <druid.version>1.1.12</druid.version>
     </properties>
     <modules>
@@ -79,6 +79,8 @@
         <module>saga</module>
         <module>spring-cloud-alibaba-samples</module>
         <module>seata-spring-boot-starter-samples</module>
+        <module>seata-xa</module>
+        <module>seata-samples-jit</module>
     </modules>
 
     <dependencies>
@@ -304,6 +306,27 @@
     <build>
         <pluginManagement>
             <plugins>
+                <plugin>
+                    <groupId>org.apache.maven.plugins</groupId>
+                    <artifactId>maven-dependency-plugin</artifactId>
+                    <version>3.1.1</version>
+                    <executions>
+                        <execution>
+                            <id>copy-dependencies</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>copy-dependencies</goal>
+                            </goals>
+                            <configuration>
+                                <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                                <overWriteReleases>false</overWriteReleases>
+                                <overWriteSnapshots>false</overWriteSnapshots>
+                                <overWriteIfNewer>true</overWriteIfNewer>
+                            </configuration>
+                        </execution>
+                    </executions>
+                </plugin>
+
                 <plugin>
                     <groupId>org.springframework.boot</groupId>
                     <artifactId>spring-boot-maven-plugin</artifactId>
